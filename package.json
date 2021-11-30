@@ -1,0 +1,47 @@
+{
+  "name": "blockchain",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint --fix",
+    "lint:fix": "eslint --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore",
+    "lint:format": "prettier  --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
+    "lint-custom": "yarn lint:format && yarn lint:fix && yarn lint",
+    "type-check": "tsc --project tsconfig.json --pretty --noEmit",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@tailwindcss/aspect-ratio": "^0.3.0",
+    "@tailwindcss/forms": "^0.3.4",
+    "@tailwindcss/line-clamp": "^0.2.2",
+    "@tailwindcss/typography": "^0.4.1",
+    "next": "12.0.4",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-hook-form": "^7.20.5",
+    "react-icons": "^4.3.1",
+    "react-multi-select-component": "^4.1.14",
+    "react-query": "^3.33.7",
+    "react-select": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/react": "17.0.37",
+    "autoprefixer": "^10.4.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "7.32.0",
+    "eslint-config-next": "12.0.4",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": ">=7.0.4",
+    "lint-staged": "^12.1.2",
+    "next-compose-plugins": "^2.2.1",
+    "next-svgr": "^0.0.2",
+    "postcss": "^8.4.4",
+    "prettier": "^2.5.0",
+    "tailwindcss": "^2.2.19",
+    "typescript": "4.5.2"
+  }
+}
