@@ -28,9 +28,6 @@ const SelectBox = () => {
   const [selected, setSelected] = useState<typeof OPTIONS>([]);
   const [headerString, setHeaderString] = useState('');
 
-  const ref = useRef<HTMLDivElement | null>(null);
-  const secondRef = useRef<HTMLDivElement | null>(null);
-
   const transformArrayToString = (inputs: typeof OPTIONS) => {
     return inputs.map((input) => input.value).join(` | `);
   };
@@ -164,8 +161,8 @@ const SelectBox = () => {
           <span className="text-sm font-bold text-gray-500">Template</span>
           <textarea
             className="min-h-[2rem] w-full py-2 pl-2 text-gray-900 placeholder-gray-800 border-0 border-b border-gray-300 shadow-sm appearance-none   focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm lg:p-0 lg:px-2 lg:pb-2 lg:min-h-[5rem]"
-            name="header"
-            id="header"
+            name="template"
+            id="template"
             defaultValue={'<SOLUS_PFIELD>Customer ID<SOLUS_PFIELD>'}
           />
         </div>
