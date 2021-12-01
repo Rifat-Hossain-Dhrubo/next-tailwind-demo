@@ -66,8 +66,11 @@ const DynamicForm = (): JSX.Element => {
   };
 
   return (
-    <div className="m-8 mx-auto max-w-7xl">
-      <div className="px-4 py-8 shadow bg-backgroundColor-primary sm:px-10 sm:rounded-lg">
+    <div className="m-1 mx-auto bg-white rounded-b-2xl">
+      <div className="py-3 mx-4 border-b border-gray-300">
+        <h2 className="text-base font-medium text-gray-900 ">Recommendation</h2>
+      </div>
+      <div className="px-4 py-8 shadow bg-backgroundColor-primary sm:px-10 sm:rounded-lg rounded-b-2xl">
         <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
           {fields.map((field, index) => {
             return (
@@ -86,7 +89,7 @@ const DynamicForm = (): JSX.Element => {
                     <select
                       id={`dynamic-${index}-inclusion`}
                       autoComplete="tel-national"
-                      className="block w-full py-2 pl-2 text-gray-900 placeholder-gray-800 border border-gray-300 rounded-md shadow-sm appearance-none pr- focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm"
+                      className="select"
                       aria-describedby={`inclusion-error-${index}`}
                       {...register(`dynamic.${index}.inclusion`)}
                     >
@@ -111,7 +114,7 @@ const DynamicForm = (): JSX.Element => {
                     <select
                       id={`dynamic-${index}-period`}
                       autoComplete="tel-national"
-                      className="block w-full py-2 pl-2 text-gray-900 placeholder-gray-800 border border-gray-300 rounded-md shadow-sm appearance-none pr- focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm"
+                      className="select"
                       aria-describedby={`period-error-${index}`}
                       {...register(`dynamic.${index}.period`)}
                     >
@@ -136,7 +139,7 @@ const DynamicForm = (): JSX.Element => {
                     <select
                       id={`dynamic-${index}-behavior`}
                       autoComplete="tel-national"
-                      className="block w-full py-2 pl-2 text-gray-900 placeholder-gray-800 border border-gray-300 rounded-md shadow-sm appearance-none pr- focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm"
+                      className="select"
                       aria-describedby={`behavior-error-${index}`}
                       {...register(`dynamic.${index}.behavior`)}
                     >
@@ -161,7 +164,7 @@ const DynamicForm = (): JSX.Element => {
                     <select
                       id={`dynamic-${index}-productAttribute`}
                       autoComplete="tel-national"
-                      className="block w-full py-2 pl-2 text-gray-900 placeholder-gray-800 border border-gray-300 rounded-md shadow-sm appearance-none pr- focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm"
+                      className="select"
                       aria-describedby={`productAttribute-error-${index}`}
                       {...register(`dynamic.${index}.productAttribute`)}
                     >
@@ -180,16 +183,16 @@ const DynamicForm = (): JSX.Element => {
                   {index > 0 ? (
                     <button
                       type="button"
-                      className="inline-flex items-center px-4 py-2 text-sm font-medium leading-4 bg-white border border-gray-300 rounded-md shadow-sm text-textColor-primary hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      className="py-1 btn-secondary"
                       onClick={() => remove(index)}
                     >
                       <HiX className="w-5 h-5 mr-2 -ml-1" aria-hidden="true" />
-                      Delete
+                      Remove
                     </button>
                   ) : (
                     <button
                       type="button"
-                      className="inline-flex items-center px-4 py-2 text-sm font-medium leading-4 bg-white border border-gray-300 rounded-md shadow-sm text-textColor-primary hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      className="py-1 btn-secondary"
                       onClick={() =>
                         append({
                           inclusion: '',
@@ -214,7 +217,7 @@ const DynamicForm = (): JSX.Element => {
           <div>
             <button
               type="submit"
-              className="flex justify-center px-4 py-2 text-sm font-medium border border-gray-300 rounded-md shadow-sm text-textColor-primary bg-oiiuDarkBlue hover:bg-oiiuGray3 focus:outline-none focus:ring-2 focus:ring-oiiuGray1 focus:ring-offset-2"
+              className="btn-secondary"
               disabled={loading === 'loading'}
             >
               {loading === 'loading' ? (
