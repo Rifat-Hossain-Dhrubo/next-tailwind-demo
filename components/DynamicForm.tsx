@@ -1,6 +1,7 @@
 import {
   HiExclamationCircle,
   HiPhone,
+  HiPlus,
   HiUser,
   HiUserAdd,
   HiX,
@@ -10,8 +11,19 @@ import { useState } from 'react';
 
 import { useRouter } from 'next/router';
 
+const options = [
+  { label: 'Grapes', value: 'grapes' },
+  { label: 'Mango', value: 'mango' },
+  { label: 'Strawberry', value: 'strawberry' },
+  { label: 'Water', value: 'watermelon' },
+  { label: 'Apple', value: 'apple' },
+  { label: 'Tang', value: 'tangerine' },
+  { label: 'Pine', value: 'pineapple' },
+  { label: 'Peach', value: 'peach' },
+];
+
 type FormValues = {
-  referralInfo: {
+  dynamic: {
     inclusion: string;
     period: string;
     behavior: string;
@@ -38,14 +50,14 @@ const DynamicForm = (): JSX.Element => {
     getValues,
   } = useForm<FormValues>({
     defaultValues: {
-      referralInfo: [
+      dynamic: [
         { inclusion: '', period: '', behavior: '', productAttribute: '' },
       ],
     },
   });
 
   const { fields, append, remove } = useFieldArray({
-    name: 'referralInfo',
+    name: 'dynamic',
     control,
   });
 
@@ -54,219 +66,155 @@ const DynamicForm = (): JSX.Element => {
   };
 
   return (
-    <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div className="m-8 mx-auto max-w-7xl">
       <div className="px-4 py-8 shadow bg-backgroundColor-primary sm:px-10 sm:rounded-lg">
-        <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+        <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
           {fields.map((field, index) => {
             return (
-              <fieldset key={field.id} className="space-y-3">
-                <section>
+              <fieldset
+                key={field.id}
+                className="grid grid-cols-1 gap-4 pb-4 border-b border-gray-200 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-5"
+              >
+                <section className="flex items-center justify-between space-x-2">
                   <label
-                    htmlFor={`referralInfo-${index}-name`}
-                    className="block text-sm font-medium text-gray-700"
+                    htmlFor={`dynamic-${index}-inclusion`}
+                    className="block text-sm font-medium text-gray-500"
                   >
-                    Friend&apos;s Name
+                    Inclusion
                   </label>
                   <div className="relative mt-1">
-                    <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                      <HiUser
-                        className="w-5 h-5 text-gray-400"
-                        aria-hidden="true"
-                      />
-                    </div>
-                    <input
-                      id={`referralInfo-${index}-name`}
-                      type="text"
+                    <select
+                      id={`dynamic-${index}-inclusion`}
                       autoComplete="tel-national"
-                      className="block w-full py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none px-9 focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm"
-                      aria-describedby={`name-error-${index}`}
-                      {...register(`referralInfo.${index}.inclusion`, {
-                        required: {
-                          value: true,
-                          message: 'Name is required',
-                        },
-                        minLength: {
-                          value: 3,
-                          message: 'Name must be at least 3 characters',
-                        },
-                        validate: () => {
-                          const values = getValues('referralInfo');
-                          const names = values.map((value) => value.inclusion);
-                          if (names.length <= 0)
-                            return 'You have to provide at least one name';
-
-                          return true;
-                        },
+                      className="block w-full py-2 pl-2 text-gray-900 placeholder-gray-800 border border-gray-300 rounded-md shadow-sm appearance-none pr- focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm"
+                      aria-describedby={`inclusion-error-${index}`}
+                      {...register(`dynamic.${index}.inclusion`)}
+                    >
+                      {options.map((option) => {
+                        return (
+                          <option key={option.value} value={option.value}>
+                            {option.label}
+                          </option>
+                        );
                       })}
-                    />
-                    {errors?.referralInfo?.[index]?.inclusion && (
-                      <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                        <HiExclamationCircle
-                          className="w-5 h-5 text-red-500"
-                          aria-hidden="true"
-                        />
-                      </div>
-                    )}
+                    </select>
                   </div>
                 </section>
-                <section>
+                <section className="flex items-center justify-between space-x-2">
                   <label
-                    htmlFor={`referralInfo-${index}-name`}
-                    className="block text-sm font-medium text-gray-700"
+                    htmlFor={`dynamic-${index}-period`}
+                    className="block text-sm font-medium text-gray-500"
                   >
-                    Friend&apos;s Name
+                    Period
                   </label>
                   <div className="relative mt-1">
-                    <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                      <HiUser
-                        className="w-5 h-5 text-gray-400"
-                        aria-hidden="true"
-                      />
-                    </div>
-                    <input
-                      id={`referralInfo-${index}-period`}
-                      type="text"
+                    <select
+                      id={`dynamic-${index}-period`}
                       autoComplete="tel-national"
-                      className="block w-full py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none px-9 focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm"
+                      className="block w-full py-2 pl-2 text-gray-900 placeholder-gray-800 border border-gray-300 rounded-md shadow-sm appearance-none pr- focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm"
                       aria-describedby={`period-error-${index}`}
-                      {...register(`referralInfo.${index}.period`, {
-                        required: {
-                          value: true,
-                          message: 'Name is required',
-                        },
-                        minLength: {
-                          value: 3,
-                          message: 'Name must be at least 3 characters',
-                        },
+                      {...register(`dynamic.${index}.period`)}
+                    >
+                      {options.map((option) => {
+                        return (
+                          <option key={option.value} value={option.value}>
+                            {option.label}
+                          </option>
+                        );
                       })}
-                    />
-                    {errors?.referralInfo?.[index]?.period && (
-                      <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                        <HiExclamationCircle
-                          className="w-5 h-5 text-red-500"
-                          aria-hidden="true"
-                        />
-                      </div>
-                    )}
+                    </select>
                   </div>
                 </section>
-                <section>
+                <section className="flex items-center justify-between space-x-2">
                   <label
-                    htmlFor={`referralInfo-${index}-behavior`}
-                    className="block text-sm font-medium text-gray-700"
+                    htmlFor={`dynamic-${index}-behavior`}
+                    className="block text-sm font-medium text-gray-500"
                   >
-                    Friend&apos;s Name
+                    Behavior
                   </label>
                   <div className="relative mt-1">
-                    <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                      <HiUser
-                        className="w-5 h-5 text-gray-400"
-                        aria-hidden="true"
-                      />
-                    </div>
-                    <input
-                      id={`referralInfo-${index}-behavior`}
-                      type="text"
+                    <select
+                      id={`dynamic-${index}-behavior`}
                       autoComplete="tel-national"
-                      className="block w-full py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none px-9 focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm"
+                      className="block w-full py-2 pl-2 text-gray-900 placeholder-gray-800 border border-gray-300 rounded-md shadow-sm appearance-none pr- focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm"
                       aria-describedby={`behavior-error-${index}`}
-                      {...register(`referralInfo.${index}.inclusion`, {
-                        required: {
-                          value: true,
-                          message: 'Name is required',
-                        },
-                        minLength: {
-                          value: 3,
-                          message: 'Name must be at least 3 characters',
-                        },
+                      {...register(`dynamic.${index}.behavior`)}
+                    >
+                      {options.map((option) => {
+                        return (
+                          <option key={option.value} value={option.value}>
+                            {option.label}
+                          </option>
+                        );
                       })}
-                    />
-                    {errors?.referralInfo?.[index]?.behavior && (
-                      <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                        <HiExclamationCircle
-                          className="w-5 h-5 text-red-500"
-                          aria-hidden="true"
-                        />
-                      </div>
-                    )}
+                    </select>
                   </div>
                 </section>
-                <section>
+                <section className="flex items-center justify-between space-x-2">
                   <label
-                    htmlFor={`referralInfo-${index}-name`}
-                    className="block text-sm font-medium text-gray-700"
+                    htmlFor={`dynamic-${index}-productAttribute`}
+                    className="block text-sm font-medium text-gray-500"
                   >
-                    Friend&apos;s Name
+                    Product attribute
                   </label>
                   <div className="relative mt-1">
-                    <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                      <HiUser
-                        className="w-5 h-5 text-gray-400"
-                        aria-hidden="true"
-                      />
-                    </div>
-                    <input
-                      id={`referralInfo-${index}-productAttribute`}
-                      type="text"
+                    <select
+                      id={`dynamic-${index}-productAttribute`}
                       autoComplete="tel-national"
-                      className="block w-full py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none px-9 focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm"
+                      className="block w-full py-2 pl-2 text-gray-900 placeholder-gray-800 border border-gray-300 rounded-md shadow-sm appearance-none pr- focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm"
                       aria-describedby={`productAttribute-error-${index}`}
-                      {...register(`referralInfo.${index}.productAttribute`, {
-                        required: {
-                          value: true,
-                          message: 'Name is required',
-                        },
-                        minLength: {
-                          value: 3,
-                          message: 'Name must be at least 3 characters',
-                        },
+                      {...register(`dynamic.${index}.productAttribute`)}
+                    >
+                      {options.map((option) => {
+                        return (
+                          <option key={option.value} value={option.value}>
+                            {option.label}
+                          </option>
+                        );
                       })}
-                    />
-                    {errors?.referralInfo?.[index]?.inclusion && (
-                      <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                        <HiExclamationCircle
-                          className="w-5 h-5 text-red-500"
-                          aria-hidden="true"
-                        />
-                      </div>
-                    )}
+                    </select>
                   </div>
                 </section>
 
                 <div className="flex justify-end">
-                  <button
-                    type="button"
-                    className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-                    onClick={() => remove(index)}
-                  >
-                    <HiX className="w-5 h-5 mr-2 -ml-1" aria-hidden="true" />
-                    Delete
-                  </button>
+                  {index > 0 ? (
+                    <button
+                      type="button"
+                      className="inline-flex items-center px-4 py-2 text-sm font-medium leading-4 bg-white border border-gray-300 rounded-md shadow-sm text-textColor-primary hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      onClick={() => remove(index)}
+                    >
+                      <HiX className="w-5 h-5 mr-2 -ml-1" aria-hidden="true" />
+                      Delete
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      className="inline-flex items-center px-4 py-2 text-sm font-medium leading-4 bg-white border border-gray-300 rounded-md shadow-sm text-textColor-primary hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      onClick={() =>
+                        append({
+                          inclusion: '',
+                          period: '',
+                          behavior: '',
+                          productAttribute: '',
+                        })
+                      }
+                    >
+                      <HiPlus
+                        className="w-5 h-5 mr-2 -ml-1"
+                        aria-hidden="true"
+                      />
+                      Add
+                    </button>
+                  )}
                 </div>
               </fieldset>
             );
           })}
 
-          <button
-            type="button"
-            className="inline-flex items-center justify-center w-full px-3 py-2 text-sm font-medium leading-4 bg-white border border-gray-300 rounded-md shadow-sm text-textColor-primary hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-            onClick={() =>
-              append({
-                inclusion: '',
-                period: '',
-                behavior: '',
-                productAttribute: '',
-              })
-            }
-          >
-            <HiUserAdd className="w-5 h-5 mr-2 -ml-1" aria-hidden="true" />
-            Refer Another Friend
-          </button>
-
           <div>
             <button
               type="submit"
-              className="flex justify-center w-full px-4 py-2 text-sm font-medium border border-transparent rounded-md shadow-sm text-textColor-primary bg-oiiuDarkBlue hover:bg-oiiuGray3 focus:outline-none focus:ring-2 focus:ring-oiiuGray1 focus:ring-offset-2"
+              className="flex justify-center px-4 py-2 text-sm font-medium border border-gray-300 rounded-md shadow-sm text-textColor-primary bg-oiiuDarkBlue hover:bg-oiiuGray3 focus:outline-none focus:ring-2 focus:ring-oiiuGray1 focus:ring-offset-2"
               disabled={loading === 'loading'}
             >
               {loading === 'loading' ? (
@@ -291,7 +239,7 @@ const DynamicForm = (): JSX.Element => {
                   />
                 </svg>
               ) : (
-                'Send Referral'
+                'Save'
               )}
             </button>
           </div>

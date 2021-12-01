@@ -79,7 +79,6 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      <Select className="border-red-700" components={{ Input }} />
       <div>
         <h1>Select Fruits</h1>
         <pre>{JSON.stringify(selected)}</pre>
