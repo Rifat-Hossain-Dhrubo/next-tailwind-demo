@@ -1,10 +1,4 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
-import Image from 'next/image';
-import { useState } from 'react';
-import { HiChevronDown, HiChevronUp } from 'react-icons/hi';
-import { MultiSelect } from 'react-multi-select-component';
-import Select, { components } from 'react-select';
 import Table from '../../components/table';
 import React from 'react';
 
@@ -19,7 +13,7 @@ const Campaign: NextPage = () => {
         id: 'expander', // Make sure it has an ID
         Header: ({ getToggleAllRowsExpandedProps, isAllRowsExpanded }: any) => (
           <span {...getToggleAllRowsExpandedProps()}>
-            {isAllRowsExpanded ? '👇' : '👉'}
+            {/* {isAllRowsExpanded ? '👇' : '👉'} */}
           </span>
         ),
         Cell: ({ row }: any) =>
