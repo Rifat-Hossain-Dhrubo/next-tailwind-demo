@@ -8,7 +8,7 @@ import Select, { components } from 'react-select';
 import Table from '../../components/table';
 import React from 'react';
 
-import campaignData from '../../Data/campaign.json';
+import campaignData from '../../util/campaign.json';
 import makeData from '../../components/table/makeData';
 
 const Campaign: NextPage = () => {
@@ -74,7 +74,7 @@ const Campaign: NextPage = () => {
           },
           {
             Header: '% Cust Coverage',
-                              accessor: 'cust_coverage',
+            accessor: 'cust_coverage',
           },
         ],
       },
@@ -82,7 +82,7 @@ const Campaign: NextPage = () => {
     []
   );
 
-  const data =    React.useMemo(() => makeData(5, 5, 5), []);
+  const data = React.useMemo(() => makeData(5, 5, 5), []);
 
   console.log(data);
 
