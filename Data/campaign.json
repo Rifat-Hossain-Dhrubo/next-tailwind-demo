@@ -1,6 +1,35 @@
 [
-    {
-        "campaign_theme": "Demo 1",
+  {
+    "campaign_theme": "Demo 1",
+    "campaignes": "asd",
+    "cust_coverage": "sdfds",
+    "cust_reached": "xcbvcv",
+    "outreach": "bcbvcvb",
+    "outreach_triggers": "gfhfg",
+    "triggers": "hfgd",
+    "subRows": [
+      {
+        "campaign_theme": "Demo 1 sub",
+        "campaignes": "asd",
+        "cust_coverage": "sdfds",
+        "cust_reached": "xcbvcv",
+        "outreach": "bcbvcvb",
+        "outreach_triggers": "gfhfg",
+        "triggers": "hfgd"
+      }
+    ]
+  },
+  {
+    "campaign_theme": "Demo 2",
+    "campaignes": "asd",
+    "cust_coverage": "sdfds",
+    "cust_reached": "xcbvcv",
+    "outreach": "bcbvcvb",
+    "outreach_triggers": "gfhfg",
+    "triggers": "hfgd",
+    "subRows": [
+      {
+        "campaign_theme": "Demo 2 sub",
         "campaignes": "asd",
         "cust_coverage": "sdfds",
         "cust_reached": "xcbvcv",
@@ -8,46 +37,17 @@
         "outreach_triggers": "gfhfg",
         "triggers": "hfgd",
         "subRows": [
-            {
-                "campaign_theme": "Demo 1 sub",
-                "campaignes": "asd",
-                "cust_coverage": "sdfds",
-                "cust_reached": "xcbvcv",
-                "outreach": "bcbvcvb",
-                "outreach_triggers": "gfhfg",
-                "triggers": "hfgd"
-            }
+          {
+            "campaign_theme": "Demo 3 sub",
+            "campaignes": "asd",
+            "cust_coverage": "sdfds",
+            "cust_reached": "xcbvcv",
+            "outreach": "bcbvcvb",
+            "outreach_triggers": "gfhfg",
+            "triggers": "hfgd"
+          }
         ]
-    },
-    {
-        "campaign_theme": "Demo 2",
-        "campaignes": "asd",
-        "cust_coverage": "sdfds",
-        "cust_reached": "xcbvcv",
-        "outreach": "bcbvcvb",
-        "outreach_triggers": "gfhfg",
-        "triggers": "hfgd",
-        "subRows": [
-            {
-                "campaign_theme": "Demo 2 sub",
-                "campaignes": "asd",
-                "cust_coverage": "sdfds",
-                "cust_reached": "xcbvcv",
-                "outreach": "bcbvcvb",
-                "outreach_triggers": "gfhfg",
-                "triggers": "hfgd",
-                "subRows": [
-                    {
-                        "campaign_theme": "Demo 3 sub",
-                        "campaignes": "asd",
-                        "cust_coverage": "sdfds",
-                        "cust_reached": "xcbvcv",
-                        "outreach": "bcbvcvb",
-                        "outreach_triggers": "gfhfg",
-                        "triggers": "hfgd"
-                    }
-                ]
-            }
-        ]
-    }
+      }
+    ]
+  }
 ]
