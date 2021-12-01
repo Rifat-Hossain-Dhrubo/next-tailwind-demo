@@ -5,11 +5,11 @@ import { useState } from 'react';
 import { HiChevronDown, HiChevronUp } from 'react-icons/hi';
 import { MultiSelect } from 'react-multi-select-component';
 import Select, { components } from 'react-select';
-import Table from '../../Component/Table';
+import Table from '../../components/table';
 import React from 'react';
-import makeData from '../../Component/Table/makeData';
 
 import campaignData from '../../Data/campaign.json';
+import makeData from '../../components/table/makeData';
 
 const Campaign: NextPage = () => {
   const columns = React.useMemo(
@@ -74,7 +74,7 @@ const Campaign: NextPage = () => {
           },
           {
             Header: '% Cust Coverage',
-            accessor: 'cust_coverage',
+                              accessor: 'cust_coverage',
           },
         ],
       },
@@ -82,7 +82,7 @@ const Campaign: NextPage = () => {
     []
   );
 
-  const data = React.useMemo(() => makeData(5, 5, 5), []);
+  const data =    React.useMemo(() => makeData(5, 5, 5), []);
 
   console.log(data);
 
