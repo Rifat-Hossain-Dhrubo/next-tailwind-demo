@@ -25,7 +25,8 @@
     "react-icons": "^4.3.1",
     "react-multi-select-component": "^4.1.14",
     "react-query": "^3.33.7",
-    "react-select": "^5.2.1"
+    "react-select": "^5.2.1",
+    "react-table": "^7.7.0"
   },
   "devDependencies": {
     "@types/react": "17.0.37",

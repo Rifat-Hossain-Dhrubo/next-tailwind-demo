@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { HiChevronDown, HiChevronUp } from 'react-icons/hi';
 import { MultiSelect } from 'react-multi-select-component';
 import Select, { components } from 'react-select';
+import DynamicForm from '../components/DynamicForm';
 
 const Input = (props: any) => (
   <components.Input
@@ -26,10 +27,10 @@ const options = [
 ];
 
 const Home: NextPage = () => {
-  const [selected, setSelected] = useState([]);
+  const [selected, setSelected] = useState<typeof options>([]);
   return (
     <div className="p-4 mx-auto">
-      <h1 className="mb-12 text-4xl font-bold text-gray-700">This is header</h1>
+      <h1 className="mb-12 text-4xl font-bold text-rose-600">This is header</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat velit,
         sequi dignissimos reiciendis a iusto, voluptatem quasi quod quaerat
@@ -88,6 +89,9 @@ const Home: NextPage = () => {
           onChange={setSelected}
           labelledBy={'Select'}
         />
+      </div>
+      <div>
+        <DynamicForm />
       </div>
     </div>
   );
