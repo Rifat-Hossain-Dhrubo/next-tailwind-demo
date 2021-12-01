@@ -7,7 +7,7 @@ import {
 } from '@reach/disclosure';
 import { useClickAway } from 'react-use';
 import VisuallyHidden from './misc/VisuallyHidden';
-import { HiX } from 'react-icons/hi';
+import { HiMinus, HiPlus, HiX } from 'react-icons/hi';
 
 const OPTIONS = [
   { label: 'Grapes 🍇', value: 'grapes' },
@@ -59,7 +59,8 @@ const SelectBox = () => {
   };
 
   return (
-    <section>
+    <section className="mt-3">
+      <h3 className="mb-3 text-sm font-bold text-gray-500">Preference</h3>
       <div className="min-h-[3rem] border-b border-gray-400 mb-2">
         {selected.map((item) => (
           <div
@@ -81,18 +82,17 @@ const SelectBox = () => {
 
       <div className="">
         <Disclosure open={isDisClosureOpen} onChange={handleDisclosureChange}>
-          <DisclosureButton
-            className="inline-flex items-center px-4 py-2 text-sm font-medium leading-4 bg-white border border-gray-300 rounded-md shadow-sm text-textColor-primary hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-            disabled={isDisClosureOpen}
-          >
+          <DisclosureButton className="btn-primary" disabled={isDisClosureOpen}>
+            <HiPlus aria-hidden="true" className="w-4 h-4 mr-1" />
             Add
           </DisclosureButton>
           <button
-            className="inline-flex items-center px-4 py-2 text-sm font-medium leading-4 bg-white border border-gray-300 rounded-md shadow-sm text-textColor-primary hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            className="btn-transparent"
             type="button"
             onClick={clearAllSelectedOptions}
           >
-            Clear all
+            <HiMinus aria-hidden="true" className="w-4 h-4 mr-1" />
+            Remove All
           </button>
           <div className="mt-2">
             <DisclosurePanel ref={ref} as="div">
@@ -110,8 +110,7 @@ const SelectBox = () => {
       <div className="w-full mt-6">
         <span className="text-sm font-bold text-gray-500">Header</span>
         <textarea
-          rows={1}
-          className="w-full py-2 pl-2 text-gray-900 placeholder-gray-800 border-0 border-b border-gray-300 shadow-sm appearance-none resize-none pr- focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm"
+          className="w-full py-2 pl-2 text-gray-900 placeholder-gray-800 border-0 border-b border-gray-300 shadow-sm appearance-none pr- focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm"
           name="header"
           id="header"
           defaultValue={headerString}
@@ -120,8 +119,7 @@ const SelectBox = () => {
       <div className="w-full mt-6">
         <span className="text-sm font-bold text-gray-500">Template</span>
         <textarea
-          rows={1}
-          className="w-full py-2 pl-2 text-gray-900 placeholder-gray-800 border-0 border-b border-gray-300 shadow-sm appearance-none resize-none pr- focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm"
+          className="min-h-[2rem] w-full py-2 pl-2 text-gray-900 placeholder-gray-800 border-0 border-b border-gray-300 shadow-sm appearance-none  pr- focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm"
           name="header"
           id="header"
           defaultValue={'<SOLUS_PFIELD>Customer ID<SOLUS_PFIELD>'}
