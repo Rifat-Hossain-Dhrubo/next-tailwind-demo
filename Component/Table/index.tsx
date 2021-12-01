@@ -12,7 +12,7 @@ function Table({ columns: userColumns, data }: any) {
     rows,
     prepareRow,
     state: { expanded },
-  }: any = useTable(
+  } = useTable(
     {
       columns: userColumns,
       data,
@@ -24,20 +24,20 @@ function Table({ columns: userColumns, data }: any) {
     <>
       <table {...getTableProps()}>
         <thead>
-          {headerGroups.map((headerGroup: any) => (
+          {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column: any) => (
+              {headerGroup.headers.map((column) => (
                 <th {...column.getHeaderProps()}>{column.render('Header')}</th>
               ))}
             </tr>
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {rows.map((row: any, i: number) => {
+          {rows.map((row, i) => {
             prepareRow(row);
             return (
               <tr {...row.getRowProps()}>
-                {row.cells.map((cell: any) => {
+                {row.cells.map((cell) => {
                   return (
                     <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                   );

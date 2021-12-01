@@ -11,17 +11,13 @@ const range = (len: Number) => {
 const newPerson = () => {
   const statusChance = Math.random();
   return {
-    firstName: 'asd',
-    lastName: 'zxczx',
-    age: Math.floor(Math.random() * 30),
-    visits: Math.floor(Math.random() * 100),
-    progress: Math.floor(Math.random() * 100),
-    status:
-      statusChance > 0.66
-        ? 'relationship'
-        : statusChance > 0.33
-        ? 'complicated'
-        : 'single',
+    campaign_theme: Math.floor(Math.random() * 30),
+    campaignes: Math.floor(Math.random() * 100),
+    triggers: Math.floor(Math.random() * 100),
+    outreach_triggers: Math.floor(Math.random() * 100),
+    outreach: Math.floor(Math.random() * 100),
+    cust_reached: Math.floor(Math.random() * 100),
+    cust_coverage: Math.floor(Math.random() * 100),
   };
 };
 

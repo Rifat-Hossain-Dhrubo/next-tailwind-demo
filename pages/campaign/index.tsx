@@ -9,6 +9,8 @@ import Table from '../../Component/Table';
 import React from 'react';
 import makeData from '../../Component/Table/makeData';
 
+import campaignData from '../../Data/campaign.json';
+
 const Campaign: NextPage = () => {
   const columns = React.useMemo(
     () => [
@@ -42,12 +44,12 @@ const Campaign: NextPage = () => {
         Header: 'Name',
         columns: [
           {
-            Header: 'First Name',
-            accessor: 'firstName',
+            Header: 'Campaign Theme',
+            accessor: 'campaign_theme',
           },
           {
-            Header: 'Last Name',
-            accessor: 'lastName',
+            Header: 'Campaigns',
+            accessor: 'campaignes',
           },
         ],
       },
@@ -55,20 +57,24 @@ const Campaign: NextPage = () => {
         Header: 'Info',
         columns: [
           {
-            Header: 'Age',
-            accessor: 'age',
+            Header: 'Triggers',
+            accessor: 'triggers',
           },
           {
-            Header: 'Visits',
-            accessor: 'visits',
+            Header: 'Outreachs/Triggers',
+            accessor: 'outreach_triggers',
           },
           {
-            Header: 'Status',
-            accessor: 'status',
+            Header: 'Outreachs',
+            accessor: 'outreach',
           },
           {
-            Header: 'Profile Progress',
-            accessor: 'progress',
+            Header: '# Cust Reached',
+            accessor: 'cust_reached',
+          },
+          {
+            Header: '% Cust Coverage',
+            accessor: 'cust_coverage',
           },
         ],
       },
@@ -78,10 +84,12 @@ const Campaign: NextPage = () => {
 
   const data = React.useMemo(() => makeData(5, 5, 5), []);
 
+  console.log(data);
+
   return (
     <div className="p-4 mx-auto">
       <div>
-        <Table columns={columns} data={data} />
+        <Table columns={columns} data={campaignData} />
       </div>
     </div>
   );
