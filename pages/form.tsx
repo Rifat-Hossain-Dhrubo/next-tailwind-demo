@@ -6,6 +6,7 @@ import VisuallyHidden from '../components/misc/VisuallyHidden';
 import { useRouter } from 'next/router';
 import SelectBox from '../components/SelectBox';
 import DynamicForm from '../components/DynamicForm';
+import ClientOnly from '../components/misc/ClientOnly';
 const Index: NextPage = () => {
   const router = useRouter();
   const { active } = router.query;
@@ -29,30 +30,32 @@ const Index: NextPage = () => {
             </h2>
           </div>
           <section className="lg:pt-12 lg:pb-6 lg:pl-24">
-            <div className="flex pl-2 space-x-6 border-b border-gray-300 lg:-ml-12">
-              <Link href="/?active=creative" passHref>
-                <a
-                  className={`block py-2 text-sm  lg:px-8  ${
-                    active === 'creative'
-                      ? 'text-primary border-b border-primary'
-                      : 'text-gray-500'
-                  }`}
-                >
-                  Creative
-                </a>
-              </Link>
-              <Link href="/?active=microSite" passHref>
-                <a
-                  className={`block py-2 text-sm text-gray-500 lg:px-8 ${
-                    active === 'microsite'
-                      ? 'text-primary border-b border-primary'
-                      : 'text-gray-500'
-                  }`}
-                >
-                  Microsite
-                </a>
-              </Link>
-            </div>
+            <ClientOnly>
+              <div className="flex pl-2 space-x-6 border-b border-gray-300 lg:-ml-12">
+                <Link href="/?active=creative" passHref>
+                  <a
+                    className={`block py-2 text-sm  lg:px-8  ${
+                      active === 'creative'
+                        ? 'text-primary border-b border-primary'
+                        : 'text-gray-500'
+                    }`}
+                  >
+                    Creative
+                  </a>
+                </Link>
+                <Link href="/?active=microSite" passHref>
+                  <a
+                    className={`block py-2 text-sm text-gray-500 lg:px-8 ${
+                      active === 'microsite'
+                        ? 'text-primary border-b border-primary'
+                        : 'text-gray-500'
+                    }`}
+                  >
+                    Microsite
+                  </a>
+                </Link>
+              </div>
+            </ClientOnly>
             <SelectBox />
             <div className="mt-3 mb-5">
               <button className="btn-secondary">Validate</button>

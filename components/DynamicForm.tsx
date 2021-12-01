@@ -68,7 +68,9 @@ const DynamicForm = (): JSX.Element => {
   return (
     <div className="m-1 mx-auto bg-white rounded-b-2xl">
       <div className="py-3 mx-4 border-b border-gray-300">
-        <h2 className="text-base font-medium text-gray-900 ">Recommendation</h2>
+        <h2 className="text-base font-medium text-gray-900 lg:pl-[5.5rem]">
+          Recommendation
+        </h2>
       </div>
       <div className="px-4 py-8 shadow bg-backgroundColor-primary sm:px-10 sm:rounded-lg rounded-b-2xl">
         <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>

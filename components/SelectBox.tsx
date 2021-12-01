@@ -95,12 +95,13 @@ const SelectBox = () => {
 
                 <div className="min-w-[300px]">
                   <MenuList
-                    className="min-w-[300px] bg-transparent border-none"
-                    portal={false}
+                    className="min-w-[300px] bg-transparent border-none relative top-1"
+                    portal={true}
                     as="div"
                   >
                     <MultiSelect
                       options={OPTIONS}
+                      shouldToggleOnHover={true}
                       value={selected}
                       onChange={handleOptionSelected}
                       labelledBy={'Select'}
@@ -133,12 +134,13 @@ const SelectBox = () => {
 
           <div>
             <MenuList
-              className="min-w-[300px] bg-transparent border-none"
-              portal={false}
+              className="min-w-[300px] bg-transparent border-none relative top-1"
+              portal={true}
               as="div"
             >
               <MultiSelect
                 options={OPTIONS}
+                shouldToggleOnHover={true}
                 value={selected}
                 onChange={handleOptionSelected}
                 labelledBy={'Select'}
