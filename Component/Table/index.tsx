@@ -2,9 +2,15 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
 import React from 'react';
-import { useTable, useExpanded } from 'react-table';
+import {
+  useTable,
+  useExpanded,
+  HeaderGroup,
+  Row,
+  useSortBy,
+} from 'react-table';
 
-function Table({ columns: userColumns, data }: any) {
+function Table({ columns: campaignColumns, data }: any) {
   const {
     getTableProps,
     getTableBodyProps,
@@ -14,9 +20,11 @@ function Table({ columns: userColumns, data }: any) {
     state: { expanded },
   } = useTable(
     {
-      columns: userColumns,
+      columns: campaignColumns,
       data,
     },
+
+    useSortBy,
     useExpanded // Use the useExpanded plugin hook
   );
 
@@ -24,16 +32,25 @@ function Table({ columns: userColumns, data }: any) {
     <>
       <table {...getTableProps()}>
         <thead>
-          {headerGroups.map((headerGroup) => (
+          {headerGroups.map((headerGroup: HeaderGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                  {column.render('Header')}
+                  <span>
+                    {column.isSorted
+                      ? column.isSortedDesc
+                        ? ' 🔽'
+                        : ' 🔼'
+                      : ''}
+                  </span>
+                </th>
               ))}
             </tr>
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {rows.map((row, i) => {
+          {rows.map((row: Row, i: Number) => {
             prepareRow(row);
             return (
               <tr {...row.getRowProps()}>
@@ -48,10 +65,12 @@ function Table({ columns: userColumns, data }: any) {
         </tbody>
       </table>
       <br />
-      <div>Showing the first 20 results of {rows.length} rows</div>
+
+      {/* Debug purpose */}
+      {/* <div>Showing the first 20 results of {rows.length} rows</div>
       <pre>
         <code>{JSON.stringify({ expanded: expanded }, null, 2)}</code>
-      </pre>
+      </pre> */}
     </>
   );
 }
