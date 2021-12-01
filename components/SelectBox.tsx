@@ -6,6 +6,8 @@ import {
   DisclosurePanel,
 } from '@reach/disclosure';
 import { useClickAway } from 'react-use';
+import VisuallyHidden from './misc/VisuallyHidden';
+import { HiX } from 'react-icons/hi';
 
 const OPTIONS = [
   { label: 'Grapes 🍇', value: 'grapes' },
@@ -44,42 +46,88 @@ const SelectBox = () => {
   };
 
   const removeSelectedOption = (value: string) => {
-    const newSelected = selected.filter((option) => option.value !== value);
-    setSelected(newSelected);
-    setHeaderString(transformArrayToString(newSelected));
+    const filteredSelectedOptions = selected.filter(
+      (option) => option.value !== value
+    );
+    setSelected(filteredSelectedOptions);
+    setHeaderString(transformArrayToString(filteredSelectedOptions));
+  };
+
+  const clearAllSelectedOptions = () => {
+    setSelected([]);
+    setHeaderString('');
   };
 
   return (
-    <div>
-      <div>
-        <textarea name="header" id="header" defaultValue={headerString} />
-      </div>
-      <section>
+    <section>
+      <div className="min-h-[3rem] border-b border-gray-400 mb-2">
         {selected.map((item) => (
-          <div key={item.value}>
-            {item.value}
+          <div
+            className="inline-flex items-center justify-between px-3 py-1 m-1 text-black bg-gray-200 rounded-full"
+            key={item.value}
+          >
+            <span className="text-sm"> {item.value}</span>
 
-            <button onClick={() => removeSelectedOption(item.value)}> X</button>
+            <button
+              className="ml-1"
+              onClick={() => removeSelectedOption(item.value)}
+            >
+              <HiX aria-hidden="true" className="w-4 h-4" />
+              <VisuallyHidden>Remove {item.value}</VisuallyHidden>
+            </button>
           </div>
         ))}
-      </section>
-      <Disclosure open={isDisClosureOpen} onChange={handleDisclosureChange}>
-        <DisclosureButton
-          className="inline-flex items-center px-4 py-2 text-sm font-medium leading-4 bg-white border border-gray-300 rounded-md shadow-sm text-textColor-primary hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-          disabled={isDisClosureOpen}
-        >
-          Add
-        </DisclosureButton>
-        <DisclosurePanel ref={ref} as="div">
-          <MultiSelect
-            options={OPTIONS}
-            value={selected}
-            onChange={handleOptionSelected}
-            labelledBy={'Select'}
-          />
-        </DisclosurePanel>
-      </Disclosure>
-    </div>
+      </div>
+
+      <div className="">
+        <Disclosure open={isDisClosureOpen} onChange={handleDisclosureChange}>
+          <DisclosureButton
+            className="inline-flex items-center px-4 py-2 text-sm font-medium leading-4 bg-white border border-gray-300 rounded-md shadow-sm text-textColor-primary hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            disabled={isDisClosureOpen}
+          >
+            Add
+          </DisclosureButton>
+          <button
+            className="inline-flex items-center px-4 py-2 text-sm font-medium leading-4 bg-white border border-gray-300 rounded-md shadow-sm text-textColor-primary hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            type="button"
+            onClick={clearAllSelectedOptions}
+          >
+            Clear all
+          </button>
+          <div className="mt-2">
+            <DisclosurePanel ref={ref} as="div">
+              <MultiSelect
+                options={OPTIONS}
+                value={selected}
+                onChange={handleOptionSelected}
+                labelledBy={'Select'}
+                defaultIsOpen={true}
+              />
+            </DisclosurePanel>
+          </div>
+        </Disclosure>
+      </div>
+      <div className="w-full mt-6">
+        <span className="text-sm font-bold text-gray-500">Header</span>
+        <textarea
+          rows={1}
+          className="w-full py-2 pl-2 text-gray-900 placeholder-gray-800 border-0 border-b border-gray-300 shadow-sm appearance-none resize-none pr- focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm"
+          name="header"
+          id="header"
+          defaultValue={headerString}
+        />
+      </div>
+      <div className="w-full mt-6">
+        <span className="text-sm font-bold text-gray-500">Template</span>
+        <textarea
+          rows={1}
+          className="w-full py-2 pl-2 text-gray-900 placeholder-gray-800 border-0 border-b border-gray-300 shadow-sm appearance-none resize-none pr- focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm"
+          name="header"
+          id="header"
+          defaultValue={'<SOLUS_PFIELD>Customer ID<SOLUS_PFIELD>'}
+        />
+      </div>
+    </section>
   );
 };
 

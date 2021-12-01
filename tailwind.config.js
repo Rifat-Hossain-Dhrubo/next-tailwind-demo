@@ -20,6 +20,8 @@ module.exports = {
         violet: colors.violet,
         fuchsia: colors.fuchsia,
         rose: colors.rose,
+        'bg-base': '#F4F5F7',
+        primary: '#00B0F0',
       },
     },
   },
