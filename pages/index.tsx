@@ -1,8 +1,8 @@
 import type { NextPage } from 'next';
 import { HiChevronDown } from 'react-icons/hi';
 import { components } from 'react-select';
-import DynamicForm from '../components/DynamicForm';
-import SelectBox from '../components/SelectBox';
+import DynamicForm from '../components/table/DynamicForm';
+import SelectBox from '../components/table/SelectBox';
 
 const Input = (props: any) => (
   <components.Input

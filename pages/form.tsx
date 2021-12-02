@@ -4,9 +4,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import VisuallyHidden from '../components/misc/VisuallyHidden';
 import { useRouter } from 'next/router';
-import SelectBox from '../components/SelectBox';
-import DynamicForm from '../components/DynamicForm';
+
+import DynamicForm from '../components/table/DynamicForm';
 import ClientOnly from '../components/misc/ClientOnly';
+import SelectBox from '../components/table/SelectBox';
 const Index: NextPage = () => {
   const router = useRouter();
   const { active } = router.query;

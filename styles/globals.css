@@ -71,6 +71,11 @@ h6 {
   isolation: isolate;
 }
 
+input[type='checkbox'],
+input[type='radio'] {
+  color: #59d99d;
+}
+
 @layer components {
   .btn-primary {
     @apply inline-flex items-center px-4 py-2 text-base font-medium leading-4 text-white rounded shadow-sm bg-primary hover:bg-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2;
@@ -83,6 +88,10 @@ h6 {
   }
 
   .select {
-    @apply block w-full py-2 pl-2 text-gray-900 placeholder-gray-800 border border-gray-300 rounded-md shadow-sm appearance-none focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm;
+    @apply block w-full py-2 pl-2 text-gray-900 placeholder-gray-800 border border-gray-300 rounded-md shadow-sm appearance-none focus:border-sky-300 focus:outline-none focus:ring focus:ring-sky-200 focus:ring-opacity-50 sm:text-sm;
+  }
+
+  .textBox {
+    @apply min-h-[2rem] w-full py-2 pl-2 text-gray-900 placeholder-gray-800 border-0 border-b border-gray-300 shadow-sm appearance-none focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm lg:p-0 lg:px-2 lg:pb-2 lg:min-h-[5rem];
   }
 }

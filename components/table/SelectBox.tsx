@@ -1,17 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { MultiSelect } from 'react-multi-select-component';
-import { useClickAway } from 'react-use';
-import VisuallyHidden from './misc/VisuallyHidden';
 import { HiMinus, HiPlus, HiX } from 'react-icons/hi';
-import {
-  Menu,
-  MenuList,
-  MenuButton,
-  MenuItem,
-  MenuItems,
-  MenuPopover,
-  MenuLink,
-} from '@reach/menu-button';
+import { Menu, MenuList, MenuButton } from '@reach/menu-button';
+import VisuallyHidden from '../misc/VisuallyHidden';
 
 const OPTIONS = [
   { label: 'Grapes 🍇', value: 'grapes' },
@@ -151,7 +142,7 @@ const SelectBox = () => {
         <div className="w-full mt-6 lg:max-w-sm lg:flex lg:space-x-4">
           <span className="text-sm font-bold text-gray-500">Header</span>
           <textarea
-            className="w-full py-2 pl-2 text-gray-900 placeholder-gray-800 border-0 border-b border-gray-300 shadow-sm appearance-none focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm lg:p-0 lg:px-2 lg:pb-2 lg:min-h-[5rem]"
+            className="textBox"
             name="header"
             id="header"
             defaultValue={headerString}
@@ -160,7 +151,7 @@ const SelectBox = () => {
         <div className="w-full mt-6 lg:max-w-sm lg:flex lg:space-x-4">
           <span className="text-sm font-bold text-gray-500">Template</span>
           <textarea
-            className="min-h-[2rem] w-full py-2 pl-2 text-gray-900 placeholder-gray-800 border-0 border-b border-gray-300 shadow-sm appearance-none   focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm lg:p-0 lg:px-2 lg:pb-2 lg:min-h-[5rem]"
+            className="textBox"
             name="template"
             id="template"
             defaultValue={'<SOLUS_PFIELD>Customer ID<SOLUS_PFIELD>'}
