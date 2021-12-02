@@ -1,4 +1,5 @@
 import React from 'react';
+import HomeCard from './HomeCard';
 
 const Info = () => {
   return (
@@ -9,26 +10,11 @@ const Info = () => {
         </h1>
       </section>
       <section className="flex flex-wrap">
-        <div className="flex flex-col items-center justify-center flex-grow flex-shrink w-5/12 p-4 m-1 ml-0 text-center text-gray-700 bg-white rounded lg:flex-nowrap lg:w-1/12 ">
-          <span className="text-xl">10&nbsp; </span>
-          <span className="text-xs lg:text-sm">Campaign Themes</span>
-        </div>
-        <div className="flex flex-col items-center justify-center flex-grow flex-shrink w-5/12 p-4 m-1 text-center text-gray-700 bg-white rounded lg:flex-nowrap lg:w-1/12 ">
-          <span className="text-xl">32&nbsp; </span>{' '}
-          <span className="text-xs lg:text-sm"> Campaign</span>
-        </div>
-        <div className="flex flex-col items-center justify-center flex-grow flex-shrink w-5/12 p-4 m-1 text-center text-gray-700 bg-white rounded lg:flex-nowrap lg:w-1/12 ">
-          <span className="text-xl">104&nbsp; </span>{' '}
-          <span className="text-xs lg:text-sm">Triggers</span>
-        </div>
-        <div className="flex flex-col items-center justify-center flex-grow flex-shrink w-5/12 p-4 m-1 text-center text-gray-700 bg-white rounded lg:flex-nowrap lg:w-1/12 ">
-          <span className="text-xl">60%&nbsp; </span>{' '}
-          <span className="text-xs lg:text-sm">Personalized</span>
-        </div>
-        <div className="flex flex-col items-center justify-center flex-grow flex-shrink w-5/12 p-4 m-1 mr-0 text-center text-gray-700 bg-white rounded lg:flex-nowrap lg:w-1/12">
-          <span className="text-xl">104&nbsp; </span>{' '}
-          <span className="text-xs lg:text-sm">Triggers</span>
-        </div>
+        <HomeCard value={'10'} title="Campaign Themes" />
+        <HomeCard value={'32'} title="Campaign" />
+        <HomeCard value={'104'} title="Triggers" />
+        <HomeCard value={'60%'} title="Personalized" />
+        <HomeCard value={'38%'} title="Offer Lead" />
       </section>
     </>
   );

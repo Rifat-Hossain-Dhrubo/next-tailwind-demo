@@ -4,7 +4,7 @@ const DesktopNav = () => {
   return (
     <div className="hidden 2xl:flex">
       <Link href="#" passHref>
-        <a className="flex items-center justify-center p-4 m-2 text-gray-500 transition-all bg-white transform-gpu hover:text-primary">
+        <a className="flex items-center justify-center p-4 m-2 transition-all bg-white text-primary transform-gpu hover:text-primary">
           Home
         </a>
       </Link>
