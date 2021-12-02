@@ -19,13 +19,20 @@ const Index: NextPage = () => {
     <div className="min-h-screen pb-4 bg-bg-base">
       <CustomHead />
       <header className="flex justify-between px-4 py-5">
-        <div className="relative w-20 h-6 lg:w-30 lg:h-6">
-          <VisuallyHidden>Home</VisuallyHidden>
-          <Image src="/images/solus.png" alt="Solus Logo" layout="fill" />
+        <Link href="/" passHref>
+          <a className="relative w-20 h-6 lg:w-30 lg:h-6">
+            <VisuallyHidden>Home</VisuallyHidden>
+            <Image src="/images/solus.png" alt="Solus Logo" layout="fill" />
+          </a>
+        </Link>
+        <div className="space-x-2">
+          <button type="button" className="text-xs text-gray-400">
+            Logout
+          </button>
+          <Link href="/" passHref>
+            <a className="text-xs text-gray-400">Home</a>
+          </Link>
         </div>
-        <button type="button" className="text-xs text-gray-400">
-          Logout
-        </button>
       </header>
       <main>
         <section className="h-full px-4 py-4 bg-white rounded-t-2xl">

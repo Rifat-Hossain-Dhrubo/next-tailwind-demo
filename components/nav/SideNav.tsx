@@ -11,11 +11,9 @@ import MainSideNav from './MainSideNav';
 import { animated } from 'react-spring';
 import { DialogContent } from '@reach/dialog';
 type Props = {
-  setShowMenu: Dispatch<SetStateAction<boolean>>;
   transitionProps: any;
 };
-const SideNav = ({ setShowMenu, transitionProps }: Props) => {
-  const ref = useRef<HTMLDivElement | null>(null);
+const SideNav = ({ transitionProps }: Props) => {
   const AnimatedDialogContent = animated(DialogContent);
   return (
     <AnimatedDialogContent

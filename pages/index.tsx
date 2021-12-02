@@ -54,16 +54,13 @@ const Home: NextPage<Props> = ({ data }) => {
               isOpen={showMenu}
               onDismiss={close}
             >
-              <SideNav
-                transitionProps={transitionProps}
-                setShowMenu={setShowMenu}
-              />
+              <SideNav transitionProps={transitionProps} />
             </AnimatedDialogOverlay>
           )
       )}
-      <div className="relative min-h-screen pt-2 2xl:pt-0 bg-bg-base">
+      <div className="relative min-h-screen pt-2 pb-8 bg-gray-200 2xl:pt-0">
         <HomeNav handleToggleMenu={handleToggleMenu} />
-        <section className="flex justify-end px-4 py-2">
+        <section className="flex justify-end px-4 py-4">
           <div className="inline-flex items-center text-xs font-medium text-gray-700 border-b border-gray-600">
             October 2021
             <HiCalendar className="w-5 h-5 ml-2 text-gray-700" />
@@ -73,7 +70,7 @@ const Home: NextPage<Props> = ({ data }) => {
           <div className="hidden col-span-2 2xl:block 2xl:-my-8">
             <MainSideNav />
           </div>
-          <div className="col-span-10">
+          <div className="col-span-10 2xl:pr-4">
             <Info />
             <Table data={data} />
           </div>

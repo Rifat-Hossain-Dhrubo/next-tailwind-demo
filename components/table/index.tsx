@@ -99,26 +99,26 @@ function Table({ data }: Props) {
   );
 
   return (
-    <div className="min-h-[500px] overflow-x-auto lg:mx-auto lg:max-w-7xl lg:mt-6">
-      <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-          <div className="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+    <div className="min-h-[500px] lg:mx-auto lg:mt-0">
+      <div className="">
+        <div className="min-w-full py-2 align-middle sm:px-0">
+          <div className="overflow-x-auto border-b border-gray-200 shadow sm:rounded-lg">
             <table
-              className="min-w-full divide-y divide-gray-200"
+              className="w-full overflow-x-auto text-center divide-y divide-gray-200 "
               {...getTableProps()}
             >
-              <thead className="bg-primary">
+              <thead className="text-center bg-primary">
                 {headerGroups.map((headerGroup) => (
                   <tr {...headerGroup.getHeaderGroupProps()}>
                     {headerGroup.headers.map((column) => (
                       <th
                         scope="col"
-                        className="relative px-6 py-3 text-xs font-bold tracking-wider text-left text-white uppercase border"
+                        className="relative px-1 py-3 text-xs font-bold tracking-wider text-center text-white uppercase border"
                         {...column.getHeaderProps(
                           column.getSortByToggleProps()
                         )}
                       >
-                        <div className="flex items-center">
+                        <div className="flex items-center justify-center">
                           {column.render('Header')}
                           <div className="w-5 h-5">
                             {column.isSorted ? (
@@ -148,7 +148,7 @@ function Table({ data }: Props) {
                       {row.cells.map((cell) => {
                         return (
                           <td
-                            className="px-6 py-4 font-medium text-gray-700 whitespace-nowrap"
+                            className="px-2 py-4 font-medium text-center text-gray-700 whitespace-nowrap"
                             {...cell.getCellProps()}
                           >
                             {cell.render('Cell')}

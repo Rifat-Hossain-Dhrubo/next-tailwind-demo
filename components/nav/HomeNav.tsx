@@ -11,9 +11,9 @@ type Props = {
 
 const HomeNav = ({ handleToggleMenu }: Props) => {
   return (
-    <nav className="flex justify-between px-5 py-4 mt-2 bg-white 2xl:py-0">
+    <nav className="flex justify-between px-2 py-4 mt-2 bg-white 2xl:py-0">
       <button
-        className="self-center btn-transparent 2xl:hidden"
+        className="self-center px-2 btn-transparent 2xl:hidden"
         type="button"
         onClick={handleToggleMenu}
       >

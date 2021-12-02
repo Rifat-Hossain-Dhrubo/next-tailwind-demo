@@ -23,6 +23,7 @@
     "@tailwindcss/typography": "^0.4.1",
     "@types/react-table": "^7.7.8",
     "next": "12.0.4",
+    "nprogress": "^0.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-hook-form": "^7.20.5",
@@ -35,6 +36,7 @@
     "react-use": "^17.3.1"
   },
   "devDependencies": {
+    "@types/nprogress": "^0.2.0",
     "@types/react": "17.0.37",
     "autoprefixer": "^10.4.0",
     "babel-eslint": "^10.1.0",

@@ -7,8 +7,10 @@ const MainSideNav = () => {
   return (
     <div className="min-h-screen px-5 py-4 bg-white rounded-t-2xl">
       <section className="text-gray-800 ">
-        <header className="flex items-center p-2">
-          <Pin aria-hidden="true" className="w-6 h-6" />
+        <header className="flex items-center p-2 space-x-3">
+          <span className="inline-flex items-center">
+            <Pin aria-hidden="true" />
+          </span>
           <h3 className="text-base font-medium">Pinned Reports</h3>
         </header>
         <div className="flex flex-col px-4">
@@ -35,10 +37,8 @@ const MainSideNav = () => {
         </div>
       </section>
       <section className="text-gray-800 ">
-        <header className="flex items-center p-2">
-          <Img aria-hidden="true" className="w-6 h-6">
-            {' '}
-          </Img>
+        <header className="flex items-center p-2 space-x-3">
+          <Img aria-hidden="true"> </Img>
           <h3 className="text-base font-medium">Performance</h3>
         </header>
         <div className="flex flex-col px-4">
@@ -75,10 +75,8 @@ const MainSideNav = () => {
         </div>
       </section>
       <section className="text-gray-800 ">
-        <header className="flex items-center p-2">
-          <Bulb aria-hidden="true" className="w-6 h-6">
-            {' '}
-          </Bulb>
+        <header className="flex items-center p-2 space-x-3">
+          <Bulb aria-hidden="true"> </Bulb>
           <h3 className="text-base font-medium">Insights</h3>
         </header>
         <div className="flex flex-col px-4">
