@@ -28,7 +28,7 @@ const SideNav = ({ transitionProps }: Props) => {
             <Home className="w-5 h-5 text-2xl" />
           </a>
         </Link>
-        <Link href="#" passHref>
+        <Link href="/dashboard" passHref>
           <a className="flex items-center justify-center p-5 m-2 text-gray-700 transition-all bg-white rounded-full hover:scale-110 transform-gpu hover:text-primary">
             <Dashboard className="w-4 h-4 text-2xl" />
           </a>
