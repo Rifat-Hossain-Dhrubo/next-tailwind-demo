@@ -35,42 +35,32 @@ const Campaign: NextPage = () => {
           ) : null,
       },
       {
-        Header: 'Name',
-        columns: [
-          {
-            Header: 'Campaign Theme',
-            accessor: 'campaign_theme',
-          },
-          {
-            Header: 'Campaigns',
-            accessor: 'campaignes',
-          },
-        ],
+        Header: 'Campaign Theme',
+        accessor: 'campaign_theme',
       },
       {
-        Header: 'Info',
-        columns: [
-          {
-            Header: 'Triggers',
-            accessor: 'triggers',
-          },
-          {
-            Header: 'Outreachs/Triggers',
-            accessor: 'outreach_triggers',
-          },
-          {
-            Header: 'Outreachs',
-            accessor: 'outreach',
-          },
-          {
-            Header: '# Cust Reached',
-            accessor: 'cust_reached',
-          },
-          {
-            Header: '% Cust Coverage',
-            accessor: 'cust_coverage',
-          },
-        ],
+        Header: 'Campaigns',
+        accessor: 'campaignes',
+      },
+      {
+        Header: 'Triggers',
+        accessor: 'triggers',
+      },
+      {
+        Header: 'Outreachs/Triggers',
+        accessor: 'outreach_triggers',
+      },
+      {
+        Header: 'Outreachs',
+        accessor: 'outreach',
+      },
+      {
+        Header: '# Cust Reached',
+        accessor: 'cust_reached',
+      },
+      {
+        Header: '% Cust Coverage',
+        accessor: 'cust_coverage',
       },
     ],
     []
@@ -78,7 +68,7 @@ const Campaign: NextPage = () => {
 
   const data = React.useMemo(() => makeData(5, 5, 5), []);
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="p-4 mx-auto">
