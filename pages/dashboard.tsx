@@ -10,12 +10,14 @@ import ClientOnly from '../components/misc/ClientOnly';
 import SelectBox from '../components/formPage/SelectBox';
 import Footer from '../components/formPage/Footer';
 import Pagination from '../components/formPage/Pagination';
+import CustomHead from '../components/common/CustomHead';
 const Index: NextPage = () => {
   const router = useRouter();
   const { active } = router.query;
 
   return (
     <div className="min-h-screen pb-4 bg-bg-base">
+      <CustomHead />
       <header className="flex justify-between px-4 py-5">
         <div className="relative w-20 h-6 lg:w-30 lg:h-6">
           <VisuallyHidden>Home</VisuallyHidden>
@@ -35,10 +37,10 @@ const Index: NextPage = () => {
           <section className="lg:pt-12 lg:pb-6 lg:pl-24">
             <ClientOnly>
               <div className="flex pl-2 space-x-6 border-b border-gray-300 lg:-ml-12">
-                <Link href="/?active=creative" passHref>
+                <Link href="dashboard/?active=creative" passHref>
                   <a
                     className={`block py-2 text-sm  lg:px-8  ${
-                      active === 'creative'
+                      active !== 'microsite'
                         ? 'text-primary border-b border-primary'
                         : 'text-gray-500'
                     }`}
@@ -46,7 +48,7 @@ const Index: NextPage = () => {
                     Creative
                   </a>
                 </Link>
-                <Link href="/?active=microSite" passHref>
+                <Link href="dashboard/?active=microsite" passHref>
                   <a
                     className={`block py-2 text-sm text-gray-500 lg:px-8 ${
                       active === 'microsite'

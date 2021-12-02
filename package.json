@@ -1,5 +1,5 @@
 {
-  "name": "blockchain",
+  "name": "demo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -14,6 +14,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@reach/dialog": "^0.16.2",
     "@reach/disclosure": "^0.16.2",
     "@reach/menu-button": "^0.16.2",
     "@tailwindcss/aspect-ratio": "^0.3.0",

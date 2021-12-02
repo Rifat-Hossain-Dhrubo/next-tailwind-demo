@@ -1,8 +1,6 @@
 import { HiPlus, HiX } from 'react-icons/hi';
 import { useFieldArray, useForm } from 'react-hook-form';
-import React, { useState } from 'react';
-
-import Pagination from './Pagination';
+import React from 'react';
 
 const options = [
   { label: 'Grapes', value: 'grapes' },
@@ -25,23 +23,7 @@ type FormValues = {
 };
 
 const DynamicForm = (): JSX.Element => {
-  const [loading, setLoading] = useState<'loading' | 'idle'>('idle');
-  const checkPhoneNumber = (phone: string) => {
-    const regex = /^(\+88)/g;
-    const found = phone.match(regex);
-    if (found == null) {
-      return `+88${phone}`;
-    }
-    return phone;
-  };
-
-  const {
-    register,
-    control,
-    formState: { errors },
-    handleSubmit,
-    getValues,
-  } = useForm<FormValues>({
+  const { register, control, handleSubmit } = useForm<FormValues>({
     defaultValues: {
       dynamic: [
         { inclusion: '', period: '', behavior: '', productAttribute: '' },
@@ -210,35 +192,8 @@ const DynamicForm = (): JSX.Element => {
           })}
 
           <div>
-            <button
-              type="submit"
-              className="btn-secondary"
-              disabled={loading === 'loading'}
-            >
-              {loading === 'loading' ? (
-                <svg
-                  className="w-5 h-5 mr-3 -ml-1 text-textColor-primary animate-spin"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  />
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                  />
-                </svg>
-              ) : (
-                'Save'
-              )}
+            <button type="submit" className="btn-secondary">
+              Save
             </button>
           </div>
         </form>

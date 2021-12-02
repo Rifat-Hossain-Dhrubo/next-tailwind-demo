@@ -1,12 +1,16 @@
 import type { GetStaticProps, NextPage } from 'next';
-import Image from 'next/image';
-import { HiBell, HiCalendar, HiChevronDown, HiMenu } from 'react-icons/hi';
+import { HiCalendar } from 'react-icons/hi';
 import { promises as fs } from 'fs';
 import path from 'path';
-import VisuallyHidden from '../components/misc/VisuallyHidden';
 import Table from '../components/table';
-import user from '../public/images/user.png';
-
+import SideNav from '../components/nav/SideNav';
+import { useState } from 'react';
+import { useTransition, animated } from 'react-spring';
+import { DialogOverlay } from '@reach/dialog';
+import MainSideNav from '../components/nav/MainSideNav';
+import HomeNav from '../components/nav/HomeNav';
+import Info from '../components/home/Info';
+import CustomHead from '../components/common/CustomHead';
 export interface BaseDataType {
   campaign_theme: string;
   campaigns: number;
@@ -25,63 +29,56 @@ type Props = {
 };
 
 const Home: NextPage<Props> = ({ data }) => {
-  return (
-    <div className="min-h-screen pt-2 bg-bg-base">
-      <nav className="flex justify-between px-5 py-4 mt-2 bg-white">
-        <button type="button">
-          <VisuallyHidden>Home</VisuallyHidden>
-          <HiMenu className="w-5 h-5 text-gray-700" />
-        </button>
-        <div className="flex items-center space-x-2">
-          <button type="button">
-            <VisuallyHidden>Notifications</VisuallyHidden>
-            <HiBell className="w-5 h-5 text-gray-700" />
-          </button>
-          <button type="button" className="p-0 space-x-1 btn-transparent">
-            <VisuallyHidden>User menu</VisuallyHidden>
-            <div className="relative w-6 h-6 rounded-full">
-              <Image src={user} alt="user picture" />
-            </div>
-            <span className="text-base">User</span>
-            <HiChevronDown className="w-5 h-5 text-primary" />
-          </button>
-        </div>
-      </nav>
-      <section className="flex justify-end px-4 py-2">
-        <div className="inline-flex items-center text-xs font-medium text-gray-700 border-b border-gray-600">
-          October 2021
-          <HiCalendar className="w-5 h-5 ml-2 text-gray-700" />
-        </div>
-      </section>
+  const [showMenu, setShowMenu] = useState(false);
+  const AnimatedDialogOverlay = animated(DialogOverlay);
+  const close = () => setShowMenu(false);
+  const showMenuTransition = useTransition(showMenu, {
+    from: { transform: 'translate3d(-100%,0,0)' },
+    enter: { transform: 'translate3d(0%,0,0)' },
+    leave: { transform: 'translate3d(-100%,0,0)' },
+  });
 
-      <section className="p-3 text-center bg-white">
-        <h1 className="text-xs font-medium text-gray-700">
-          Campaigns:Drill Down
-        </h1>
-      </section>
-      <section className="flex flex-wrap">
-        <div className="flex flex-col items-center justify-center flex-grow flex-shrink w-5/12 p-4 m-1 text-center text-gray-700 bg-white lg:flex-nowrap lg:w-1/6">
-          <span className="text-xl">10&nbsp; </span>
-          <span className="text-xs">Campaign Themes</span>
-        </div>
-        <div className="flex flex-col items-center justify-center flex-grow flex-shrink w-5/12 p-4 m-1 text-center text-gray-700 bg-white lg:flex-nowrap lg:w-1/6">
-          <span className="text-xl">32&nbsp; </span>{' '}
-          <span className="text-xs"> Campaign</span>
-        </div>
-        <div className="flex flex-col items-center justify-center flex-grow flex-shrink w-5/12 p-4 m-1 text-center text-gray-700 bg-white lg:flex-nowrap lg:w-1/6">
-          <span className="text-xl">104&nbsp; </span>{' '}
-          <span className="text-xs">Triggers</span>
-        </div>
-        <div className="flex flex-col items-center justify-center flex-grow flex-shrink w-5/12 p-4 m-1 text-center text-gray-700 bg-white lg:flex-nowrap lg:w-1/6">
-          <span className="text-xl">60%&nbsp; </span>{' '}
-          <span className="text-xs">Personalized</span>
-        </div>
-        <div className="flex flex-col items-center justify-center flex-grow flex-shrink w-5/12 p-4 m-1 text-center text-gray-700 bg-white lg:flex-nowrap lg:w-1/6">
-          <span className="text-xl">104&nbsp; </span>{' '}
-          <span className="text-xs">Triggers</span>
-        </div>
-      </section>
-      <Table data={data} />
+  const handleToggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
+  return (
+    <div className="relative">
+      <CustomHead />
+      {showMenuTransition(
+        (transitionProps, item) =>
+          item && (
+            <AnimatedDialogOverlay
+              className="fixed top-0 left-0 z-10 w-full min-h-screen bg-gray-400 bg-opacity-40"
+              as="div"
+              isOpen={showMenu}
+              onDismiss={close}
+            >
+              <SideNav
+                transitionProps={transitionProps}
+                setShowMenu={setShowMenu}
+              />
+            </AnimatedDialogOverlay>
+          )
+      )}
+      <div className="relative min-h-screen pt-2 2xl:pt-0 bg-bg-base">
+        <HomeNav handleToggleMenu={handleToggleMenu} />
+        <section className="flex justify-end px-4 py-2">
+          <div className="inline-flex items-center text-xs font-medium text-gray-700 border-b border-gray-600">
+            October 2021
+            <HiCalendar className="w-5 h-5 ml-2 text-gray-700" />
+          </div>
+        </section>
+        <main className="2xl:grid-cols-12 2xl:grid gap-x-4">
+          <div className="hidden col-span-2 2xl:block 2xl:-my-8">
+            <MainSideNav />
+          </div>
+          <div className="col-span-10">
+            <Info />
+            <Table data={data} />
+          </div>
+        </main>
+      </div>
     </div>
   );
 };
