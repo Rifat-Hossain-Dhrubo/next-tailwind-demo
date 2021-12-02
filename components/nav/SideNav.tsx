@@ -29,7 +29,7 @@ const SideNav = ({ transitionProps }: Props) => {
           </a>
         </Link>
         <Link href="#" passHref>
-          <a className="flex items-center justify-center p-4 m-2 text-gray-700 transition-all bg-white rounded-full hover:scale-110 transform-gpu hover:text-primary">
+          <a className="flex items-center justify-center p-5 m-2 text-gray-700 transition-all bg-white rounded-full hover:scale-110 transform-gpu hover:text-primary">
             <Dashboard className="w-4 h-4 text-2xl" />
           </a>
         </Link>
