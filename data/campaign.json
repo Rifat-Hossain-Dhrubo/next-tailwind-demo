@@ -1,52 +1,132 @@
 [
   {
-    "campaign_theme": "Demo 1",
-    "campaignes": "asd",
-    "cust_coverage": "sdfds",
-    "cust_reached": "xcbvcv",
-    "outreach": "bcbvcvb",
-    "outreach_triggers": "gfhfg",
-    "triggers": "hfgd",
+    "campaign_theme": "Milestones",
+    "campaigns": 2,
+    "triggers": 23,
+    "outreach_triggers": 6359,
+    "outreach": 565632,
+    "cust_coverage": 10,
+    "cust_reached": 14764,
     "subRows": [
       {
-        "campaign_theme": "Demo 1 sub",
-        "campaignes": "asd",
-        "cust_coverage": "sdfds",
-        "cust_reached": "xcbvcv",
-        "outreach": "bcbvcvb",
-        "outreach_triggers": "gfhfg",
-        "triggers": "hfgd"
+        "campaign_theme": "Milestones Nth transitions",
+        "campaigns": 3,
+        "triggers": 15,
+        "outreach_triggers": 56418,
+        "outreach": 123124,
+        "cust_coverage": 20,
+        "cust_reached": 12566
       }
     ]
   },
   {
-    "campaign_theme": "Demo 2",
-    "campaignes": "asd",
-    "cust_coverage": "sdfds",
-    "cust_reached": "xcbvcv",
-    "outreach": "bcbvcvb",
-    "outreach_triggers": "gfhfg",
-    "triggers": "hfgd",
+    "campaign_theme": "Personal Events",
+    "campaigns": 5,
+    "triggers": 13,
+    "outreach_triggers": 1234,
+    "outreach": 3534567,
+    "cust_coverage": 20,
+    "cust_reached": 21356,
     "subRows": [
       {
-        "campaign_theme": "Demo 2 sub",
-        "campaignes": "asd",
-        "cust_coverage": "sdfds",
-        "cust_reached": "xcbvcv",
-        "outreach": "bcbvcvb",
-        "outreach_triggers": "gfhfg",
-        "triggers": "hfgd",
+        "campaign_theme": "Personal Events 1",
+        "campaigns": 13,
+        "triggers": 17,
+        "outreach_triggers": 85342,
+        "outreach": 565632,
+        "cust_coverage": 80,
+        "cust_reached": 21356,
         "subRows": [
           {
-            "campaign_theme": "Demo 3 sub",
-            "campaignes": "asd",
-            "cust_coverage": "sdfds",
-            "cust_reached": "xcbvcv",
-            "outreach": "bcbvcvb",
-            "outreach_triggers": "gfhfg",
-            "triggers": "hfgd"
+            "campaign_theme": "Personal Events sub 2",
+            "campaigns": 23,
+            "triggers": 15,
+            "outreach_triggers": 1231234,
+            "outreach": 5352345,
+            "cust_coverage": 40,
+            "cust_reached": 52423
           }
         ]
+      }
+    ]
+  },
+  {
+    "campaign_theme": "Festive Events",
+    "campaigns": 38,
+    "triggers": 19,
+    "outreach_triggers": 9087689,
+    "outreach": 3534535,
+    "cust_coverage": 25,
+    "cust_reached": 23454,
+    "subRows": [
+      {
+        "campaign_theme": "Festive Events sub",
+        "campaigns": 6,
+        "triggers": 15,
+        "outreach_triggers": 3123,
+        "outreach": 565632,
+        "cust_coverage": 20,
+        "cust_reached": 12379
+      }
+    ]
+  },
+  {
+    "campaign_theme": "Offer Leads",
+    "campaigns": 4,
+    "triggers": 23,
+    "outreach_triggers": 876576,
+    "outreach": 234535,
+    "cust_coverage": 20,
+    "cust_reached": 439850,
+    "subRows": [
+      {
+        "campaign_theme": "Offer Leads sub",
+        "campaigns": 38,
+        "triggers": 15,
+        "outreach_triggers": 141241,
+        "outreach": 67867,
+        "cust_coverage": 27,
+        "cust_reached": 13214
+      }
+    ]
+  },
+  {
+    "campaign_theme": "Life Cycle",
+    "campaigns": 12,
+    "triggers": 6,
+    "outreach_triggers": 21284,
+    "outreach": 3453453,
+    "cust_coverage": 20,
+    "cust_reached": 934545,
+    "subRows": [
+      {
+        "campaign_theme": "Life Cycle sub",
+        "campaigns": 13,
+        "triggers": 15,
+        "outreach_triggers": 365345,
+        "outreach": 325434,
+        "cust_coverage": 65,
+        "cust_reached": 91367
+      }
+    ]
+  },
+  {
+    "campaign_theme": "Cross / Up Sell",
+    "campaigns": 30,
+    "triggers": 16,
+    "outreach_triggers": 118391,
+    "outreach": 565632,
+    "cust_coverage": 20,
+    "cust_reached": 795751,
+    "subRows": [
+      {
+        "campaign_theme": "Cross / Up Sell sub",
+        "campaigns": 3,
+        "triggers": 15,
+        "outreach_triggers": 56418,
+        "outreach": 565632,
+        "cust_coverage": 88,
+        "cust_reached": 439850
       }
     ]
   }
