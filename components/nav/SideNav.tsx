@@ -24,7 +24,7 @@ const SideNav = ({ transitionProps }: Props) => {
     >
       <div className="flex flex-col">
         <Link href="#" passHref>
-          <a className="flex items-center justify-center p-5 m-2 text-white transition-all rounded-xl bg-primary hover:scale-110 transform-gpu hover:text-primary">
+          <a className="flex items-center justify-center p-5 m-2 text-white transition-all rounded-xl bg-primary hover:scale-110 transform-gpu hover:text-white">
             <Home className="w-5 h-5 text-2xl" />
           </a>
         </Link>
