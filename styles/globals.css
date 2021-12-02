@@ -92,6 +92,6 @@ input[type='radio'] {
   }
 
   .textBox {
-    @apply min-h-[2rem] w-full py-2 pl-2 text-gray-900 placeholder-gray-800 border-0 border-b border-gray-300 shadow-sm appearance-none focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm lg:p-0 lg:px-2 lg:pb-2 lg:min-h-[5rem];
+    @apply min-h-[2rem] w-full py-2 pl-2 text-gray-900 placeholder-gray-800 border-0 border-b border-gray-300 shadow-sm appearance-none focus:border-sky-300 focus:outline-none focus:ring focus:ring-sky-200 focus:ring-opacity-50 sm:text-sm lg:p-0 lg:px-2 lg:pb-2 lg:min-h-[5rem];
   }
 }

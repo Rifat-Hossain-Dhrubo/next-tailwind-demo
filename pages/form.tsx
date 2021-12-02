@@ -8,6 +8,8 @@ import { useRouter } from 'next/router';
 import DynamicForm from '../components/formPage/DynamicForm';
 import ClientOnly from '../components/misc/ClientOnly';
 import SelectBox from '../components/formPage/SelectBox';
+import Footer from '../components/formPage/Footer';
+import Pagination from '../components/formPage/Pagination';
 const Index: NextPage = () => {
   const router = useRouter();
   const { active } = router.query;
@@ -24,7 +26,7 @@ const Index: NextPage = () => {
         </button>
       </header>
       <main>
-        <section className="h-full px-4 py-4 bg-white shadow rounded-t-2xl">
+        <section className="h-full px-4 py-4 bg-white rounded-t-2xl">
           <div>
             <h2 className="text-xl font-medium text-gray-700 lg:text-4xl">
               Event
@@ -65,8 +67,10 @@ const Index: NextPage = () => {
         </section>
         <section>
           <DynamicForm />
+          <Pagination />
         </section>
       </main>
+      <Footer />
     </div>
   );
 };

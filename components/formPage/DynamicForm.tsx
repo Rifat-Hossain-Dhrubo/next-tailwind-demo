@@ -1,15 +1,8 @@
-import {
-  HiExclamationCircle,
-  HiPhone,
-  HiPlus,
-  HiUser,
-  HiUserAdd,
-  HiX,
-} from 'react-icons/hi';
+import { HiPlus, HiX } from 'react-icons/hi';
 import { useFieldArray, useForm } from 'react-hook-form';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-import { useRouter } from 'next/router';
+import Pagination from './Pagination';
 
 const options = [
   { label: 'Grapes', value: 'grapes' },
@@ -66,13 +59,13 @@ const DynamicForm = (): JSX.Element => {
   };
 
   return (
-    <div className="m-1 mx-auto bg-white rounded-b-2xl">
+    <div className="mx-auto mt-1 bg-white ">
       <div className="py-3 mx-4 border-b border-gray-300">
         <h2 className="text-base font-medium text-gray-900 lg:pl-[5.5rem]">
           Recommendation
         </h2>
       </div>
-      <div className="px-4 py-8 shadow bg-backgroundColor-primary sm:px-10 sm:rounded-lg rounded-b-2xl">
+      <div className="px-4 py-8 bg-backgroundColor-primary sm:px-10">
         <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
           {fields.map((field, index) => {
             return (
@@ -83,11 +76,11 @@ const DynamicForm = (): JSX.Element => {
                 <section className="flex items-center justify-between space-x-2">
                   <label
                     htmlFor={`dynamic-${index}-inclusion`}
-                    className="block text-sm font-medium text-gray-500"
+                    className="block text-sm font-medium text-gray-500 lg:flex-grow-0 lg:flex-shrink"
                   >
                     Inclusion
                   </label>
-                  <div className="relative mt-1">
+                  <div className="relative mt-1 lg:flex-grow lg:flex-shrink-0">
                     <select
                       id={`dynamic-${index}-inclusion`}
                       autoComplete="tel-national"
@@ -108,11 +101,11 @@ const DynamicForm = (): JSX.Element => {
                 <section className="flex items-center justify-between space-x-2">
                   <label
                     htmlFor={`dynamic-${index}-period`}
-                    className="block text-sm font-medium text-gray-500"
+                    className="block text-sm font-medium text-gray-500 lg:flex-grow-0 lg:flex-shrink"
                   >
                     Period
                   </label>
-                  <div className="relative mt-1">
+                  <div className="relative mt-1 lg:flex-grow lg:flex-shrink-0">
                     <select
                       id={`dynamic-${index}-period`}
                       autoComplete="tel-national"
@@ -133,11 +126,11 @@ const DynamicForm = (): JSX.Element => {
                 <section className="flex items-center justify-between space-x-2">
                   <label
                     htmlFor={`dynamic-${index}-behavior`}
-                    className="block text-sm font-medium text-gray-500"
+                    className="block text-sm font-medium text-gray-500 lg:flex-grow-0 lg:flex-shrink"
                   >
                     Behavior
                   </label>
-                  <div className="relative mt-1">
+                  <div className="relative mt-1 lg:flex-grow lg:flex-shrink-0">
                     <select
                       id={`dynamic-${index}-behavior`}
                       autoComplete="tel-national"
@@ -158,11 +151,11 @@ const DynamicForm = (): JSX.Element => {
                 <section className="flex items-center justify-between space-x-2">
                   <label
                     htmlFor={`dynamic-${index}-productAttribute`}
-                    className="block text-sm font-medium text-gray-500"
+                    className="block text-sm font-medium text-gray-500 lg:flex-grow-0 lg:flex-shrink"
                   >
                     Product attribute
                   </label>
-                  <div className="relative mt-1">
+                  <div className="relative mt-1 lg:flex-grow lg:flex-shrink-0">
                     <select
                       id={`dynamic-${index}-productAttribute`}
                       autoComplete="tel-national"
@@ -181,7 +174,7 @@ const DynamicForm = (): JSX.Element => {
                   </div>
                 </section>
 
-                <div className="flex justify-end">
+                <div className="flex justify-end col-end-[-1]">
                   {index > 0 ? (
                     <button
                       type="button"
@@ -194,7 +187,7 @@ const DynamicForm = (): JSX.Element => {
                   ) : (
                     <button
                       type="button"
-                      className="py-1 btn-secondary"
+                      className="py-1 min-w-[7.75rem] justify-center btn-secondary"
                       onClick={() =>
                         append({
                           inclusion: '',
